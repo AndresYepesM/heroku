@@ -19,4 +19,5 @@ urlpatterns = [
     path('articles/', Article.as_view(), name='article_readers'),
 
     path('activities/', Activities.as_view(), name='activities_readers'),
-]
+    
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
