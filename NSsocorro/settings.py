@@ -151,6 +151,21 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'djangopruebaemail59@gmail.com'
 EMAIL_HOST_PASSWORD = 'Django26369180'
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+             'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
+        },
+    },
+}
 
 # CKEDITOR.
 CKEDITOR_UPLOAD_PATH = "upload/"
