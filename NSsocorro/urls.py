@@ -3,7 +3,7 @@ from django.urls import path, include, re_path
 from django.contrib.auth import views as auth_views
 from readers import views
 from readers.views import Article, Activities
-from django.conf.urls.static import static
+
 
 
 urlpatterns = [
@@ -21,4 +21,4 @@ urlpatterns = [
 
     path('activities/', Activities.as_view(), name='activities_readers'),
 
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
