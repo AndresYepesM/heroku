@@ -145,11 +145,11 @@ LOGOUT_REDIRECT_URL = 'home'
 # Email Configurations
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'djangopruebaemail59@gmail.com'
-EMAIL_HOST_PASSWORD = 'Django26369180'
+EMAIL_HOST_USER = 'aymoreno567@gmail.com'
+EMAIL_HOST_PASSWORD = 'Kander26369180*-'
 
 
 # CKEDITOR.
