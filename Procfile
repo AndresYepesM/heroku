@@ -1,0 +1,1 @@
+web: gunicorn NSsocorro.wsgi --log-file -

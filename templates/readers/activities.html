@@ -1,0 +1,98 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+	<nav class="navbar navbar-expand-lg navbar-light mb-4 sticky-top"style="background:rgba(0,0,0,0.9);">
+		<div class="container-fluid">
+		  
+		  <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon bg-light"></span>
+		  </button>
+
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    <ul class="navbar-nav">
+
+		    	<li class="nav-item active">
+					  <a class="nav-link text-light" href=" {% url 'home' %}">Home</a>
+				</li>
+
+		      <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		         Blog
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		          <a class="dropdown-item" href="{% url 'article_readers' %}">Articles</a>
+		          <div class="dropdown-divider"></div>
+		          <a class="dropdown-item" href="{% url 'activities_readers' %}">Activities</a>
+		        </div>
+		      </li>
+
+		      <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          More information
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		          <a class="dropdown-item" href="#">The Church</a>
+		          <div class="dropdown-divider"></div>
+		          <a class="dropdown-item" href="#">Curses</a>
+		          <div class="dropdown-divider"></div>
+		          <a class="dropdown-item" href="#">talk with us</a>
+		        </div>
+		      </li>
+
+		      <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          Comunity
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		          <a class="dropdown-item" href="#">community members</a>
+		          <div class="dropdown-divider"></div>
+		          <a class="dropdown-item" href="#">community groups</a>
+		          <div class="dropdown-divider"></div>
+		          <a class="dropdown-item" href="#">OAR family</a>
+		        </div>
+		      </li>
+		    </ul>
+		  </div>
+
+		  <a class="navbar-brand text-light justify-content-end" href="{% url 'login' %}">NS Socorro</a>
+		</div>
+	</nav>
+
+	<div class="container mt-4">
+		<div class="row">
+			<div class="col col-sm-12 col-md-12 col-lg-12">
+				{% if object_list  %}
+					{% for activities in object_list %}
+						<div class="card text-center mb-4 ">
+							<div class="card-header">
+								Activities from {{ activities.st_date }} until {{ activities.ed_date }} 
+						  	</div>
+
+						  	<div class="card-body">
+						    	<p class="card-text text-justify table-responsive">{{ activities.text|safe }}</p>
+						  	</div>
+						</div>
+					{% endfor %}
+				{% else %}
+					<div class="alert alert-danger" role="alert">
+						<h4 class="alert-heading">The blog don't have any activities posted.</h4>
+					</div>
+				{% endif %}
+
+				<nav aria-label="Page navigation example">
+				  <ul class="pagination justify-content-center">
+				  	{% if page_obj.has_previous %}
+				    	<li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number}}" aria-label="Previous"><span aria-hidden="true">&laquo; Previous</span></a><li>
+				    {% endif %}
+
+				    {% if page_obj.has_next %}
+				    	<li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next"><span aria-hidden="true">Next &raquo;</span></a></li>
+				    {% endif %}
+				  </ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
