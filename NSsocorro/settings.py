@@ -144,12 +144,12 @@ LOGOUT_REDIRECT_URL = 'home'
 
 # Email Configurations
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.cloudmta.net'
+EMAIL_PORT = 2525
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'bb731b2f948c506d'
 EMAIL_HOST_PASSWORD = 'B2gSkXF2hCQJefWu6ag1HQf2'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.cloudmta.net'
-EMAIL_PORT = 587
 
 # CKEDITOR.
 CKEDITOR_UPLOAD_PATH = "upload/"
